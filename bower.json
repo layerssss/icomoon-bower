@@ -3,11 +3,11 @@
   "version": "0.0.3",
   "homepage": "http://keyamoon.com/icomoon/",
   "main": [
-    "dist/css/style.css",
-    "dist/fonts/icomoon.eot",
-    "dist/fonts/icomoon.svg",
-    "dist/fonts/icomoon.ttf",
-    "dist/fonts/icomoon.woff"
+    "style.css",
+    "fonts/icomoon.eot",
+    "fonts/icomoon.svg",
+    "fonts/icomoon.ttf",
+    "fonts/icomoon.woff"
   ],
   "authors": [
     "Keyamoon"
