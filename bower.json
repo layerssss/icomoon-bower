@@ -1,6 +1,6 @@
 {
   "name": "icomoon-bower",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "homepage": "http://keyamoon.com/icomoon/",
   "main": [
     "style.css",
