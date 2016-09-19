@@ -1,0 +1,32 @@
+#!/usr/local/bin/node
+
+var log = s => { console.log(s); };
+const fs = require('fs');
+
+fs.readFile('../style.css', 'utf8', (err, s) => {
+	if (err) throw new Error(err);
+	var r = s.split('\n');
+	var glyphs = {};
+	for (var i = 0; i < r.length; i++) {
+		var m = r[i].match(/\.icon-(.*):before/);
+		if (!m) continue;
+		glyphs[m[1]] = r[++i].match(/content:\s+"(.*)"/)[1];
+	}
+	var html = Object.keys(glyphs).sort().map(k => {
+		return `
+			<div>
+			<span class="icon icon-${k}"></span>
+			<span class="label">${k}</span>
+			</div>
+		`;
+	});
+	demo(html.join('\n'));
+});
+
+function demo(catalogue) {
+	fs.readFile('index.html', 'utf8', (err, s) => {
+		if (err) throw new Error(err);
+		s = s.replace('{{Catalogue}}', catalogue);
+		fs.writeFile('../demo.html', s, 'utf8');
+	});
+}
